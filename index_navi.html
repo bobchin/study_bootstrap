@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bootstrap 101 Template</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+$('#pager a').click(function(){
+
+    $('#pager a').each(function(){
+        $(this).parent().removeClass('active');
+        $(this).parent().removeClass('disabled');
+    });
+    
+    var li = $(this).closest('li');
+    var all = $('#pager li');
+    
+    console.log(all.first().index())
+    console.log(li.index())
+    console.log(all.last().index())
+    if (all.first().index() < li.index() && li.index() < all.last().index()) {
+        li.addClass('active');
+        
+        if (all.eq(1).index() == li.index()) {
+            all.first().addClass('disabled');
+        }
+        if (all.eq(-2).index() == li.index()) {
+            all.last().addClass('disabled');
+        }
+    }
+    return false;
+
+});
+
+});
+</script>
+</head>
+<body style="padding-top:40px">
+<div class="container">
+
+
+<ul class="breadcrumb">
+    <li><a href="">Home</a> <span class="divider">&gt;</span></li>
+    <li><a href="">Lessons</a> <span class="divider">&gt;</span></li>
+    <li class="active">PHP</li>
+</ul>
+
+<div class="pagination" id="pager">
+<ul>
+    <li><a href="">&laquo;</a></li>
+    <li><a href="">1</a></li>
+    <li><a href="">2</a></li>
+    <li><a href="">3</a></li>
+    <li><a href="">4</a></li>
+    <li><a href="">5</a></li>
+    <li><a href="">&raquo;</a></li>
+</ul>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
+
